@@ -1,12 +1,12 @@
 <?php
 
-namespace Spatie\Skeleton\Commands;
+namespace Markandrewkato\AuthorizeNet\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class AuthorizeNetCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'laravel-authorize-net';
 
     public $description = 'My command';
 
