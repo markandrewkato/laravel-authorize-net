@@ -111,5 +111,4 @@ class TransactionResponse
         
         return $this->getErrors()[0]['errorText'];
     }
-    
 }

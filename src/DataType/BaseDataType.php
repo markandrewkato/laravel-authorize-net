@@ -3,7 +3,6 @@
 
 namespace Markandrewkato\AuthorizeNet\DataType;
 
-
 class BaseDataType
 {
     protected $propertyMap = [];
@@ -25,6 +24,7 @@ class BaseDataType
             }
         }
         $sorted_properties += $this->properties;
+
         return $sorted_properties;
     }
     

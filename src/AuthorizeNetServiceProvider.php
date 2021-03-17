@@ -2,9 +2,9 @@
 
 namespace Markandrewkato\AuthorizeNet;
 
+use Markandrewkato\AuthorizeNet\Commands\AuthorizeNetCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Markandrewkato\AuthorizeNet\Commands\AuthorizeNetCommand;
 
 class AuthorizeNetServiceProvider extends PackageServiceProvider
 {
@@ -18,7 +18,7 @@ class AuthorizeNetServiceProvider extends PackageServiceProvider
         $package
             ->name('laravel-authorize-net')
             ->hasConfigFile();
-            // ->hasViews()
+        // ->hasViews()
             // ->hasMigration('create_laravel_authorize_net_table')
             // ->hasCommand(AuthorizeNetCommand::class)
     }

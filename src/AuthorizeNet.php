@@ -23,7 +23,7 @@ class AuthorizeNet
     public function __construct($loginId, $key)
     {
         $this->loginId = $loginId;
-        $this->key     = $key;
+        $this->key = $key;
     }
     
     public static function make($loginId, $key)
@@ -36,10 +36,10 @@ class AuthorizeNet
         $response = Http::post(config('authorize-net.endpoint'), [
             'authenticateTestRequest' => [
                 'merchantAuthentication' => [
-                    'name'           => $this->loginId,
-                    'transactionKey' => $this->key
-                ]
-            ]
+                    'name' => $this->loginId,
+                    'transactionKey' => $this->key,
+                ],
+            ],
         ]);
         
         if ($response->ok()) {
@@ -56,18 +56,18 @@ class AuthorizeNet
         $response = Http::post(config('authorize-net.endpoint'), [
             'createTransactionRequest' => [
                 'merchantAuthentication' => [
-                    'name'           => $this->loginId,
-                    'transactionKey' => $this->key
+                    'name' => $this->loginId,
+                    'transactionKey' => $this->key,
                 ],
-                'transactionRequest'     => [
+                'transactionRequest' => [
                     'transactionType' => 'authCaptureTransaction',
-                    'amount'          => $amount,
-                    'payment'         => [
-                        'creditCard' => $this->card->toArray()
+                    'amount' => $amount,
+                    'payment' => [
+                        'creditCard' => $this->card->toArray(),
                     ],
-                    'billTo'          => $this->billing->toArray()
+                    'billTo' => $this->billing->toArray(),
                 ],
-            ]
+            ],
         ]);
         
         if ($response->ok()) {
@@ -84,18 +84,21 @@ class AuthorizeNet
     public function setCardInfo(CreditCard $card)
     {
         $this->card = $card;
+
         return $this;
     }
     
     public function setBillingInfo(BillingInfo $billing)
     {
         $this->billing = $billing;
+
         return $this;
     }
     
     private function parseContentToArray($body)
     {
         $content = preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $body);
+
         return json_decode($content, true);
     }
 }
