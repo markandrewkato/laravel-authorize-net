@@ -9,7 +9,7 @@ class CreditCard extends BaseDataType
     protected $propertyMap = [
         'cardNumber',
         'expirationDate',
-        'cardCode'
+        'cardCode',
     ];
     
     public function __set($name, $value)

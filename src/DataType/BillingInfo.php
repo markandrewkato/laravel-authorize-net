@@ -10,10 +10,10 @@ class BillingInfo extends BaseDataType
         'address',
         'city',
         'state',
-        'zip'
+        'zip',
     ];
     
     protected $properties = [
-        'country' => 'USA'
+        'country' => 'USA',
     ];
 }

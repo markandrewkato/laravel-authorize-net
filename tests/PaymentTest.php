@@ -20,7 +20,7 @@ class PaymentTest extends TestCase
         parent::setUp();
         
         $this->loginId = '25EywBAG5KzP';
-        $this->key     = '56Zn3J9f8VHwp7zc';
+        $this->key = '56Zn3J9f8VHwp7zc';
     }
     
     /** @test */
@@ -36,17 +36,17 @@ class PaymentTest extends TestCase
     {
         $response = AuthorizeNet::make($this->loginId, $this->key)
             ->setCardInfo(new CreditCard([
-                'cardNumber'     => '4111111111111111',
+                'cardNumber' => '4111111111111111',
                 'expirationDate' => '12/22',
-                'cardCode'       => '1234'
+                'cardCode' => '1234',
             ]))
             ->setBillingInfo(new BillingInfo([
                 'firstName' => $this->faker->firstName,
-                'lastName'  => $this->faker->lastName,
-                'address'   => $this->faker->address,
-                'city'      => $this->faker->city,
-                'state'     => $this->faker->state,
-                'zip'       => $this->faker->postcode
+                'lastName' => $this->faker->lastName,
+                'address' => $this->faker->address,
+                'city' => $this->faker->city,
+                'state' => $this->faker->state,
+                'zip' => $this->faker->postcode,
             ]))
             ->charge(1);
         
@@ -59,17 +59,17 @@ class PaymentTest extends TestCase
     {
         $response = AuthorizeNet::make($this->loginId, $this->key)
             ->setCardInfo(new CreditCard([
-                'cardNumber'     => '4111111111111111',
+                'cardNumber' => '4111111111111111',
                 'expirationDate' => '12/22',
-                'cardCode'       => '1234'
+                'cardCode' => '1234',
             ]))
             ->setBillingInfo(new BillingInfo([
                 'firstName' => $this->faker->firstName,
-                'lastName'  => $this->faker->lastName,
-                'address'   => $this->faker->address,
-                'city'      => $this->faker->city,
-                'state'     => $this->faker->state,
-                'zip'       => '46282' // this zip will determine that its declined
+                'lastName' => $this->faker->lastName,
+                'address' => $this->faker->address,
+                'city' => $this->faker->city,
+                'state' => $this->faker->state,
+                'zip' => '46282', // this zip will determine that its declined
             ]))
             ->charge(1);
         
@@ -81,17 +81,17 @@ class PaymentTest extends TestCase
     {
         $response = AuthorizeNet::make($this->loginId, $this->key)
             ->setCardInfo(new CreditCard([
-                'cardNumber'     => '4111111111111112',
+                'cardNumber' => '4111111111111112',
                 'expirationDate' => '12/22',
-                'cardCode'       => '1234'
+                'cardCode' => '1234',
             ]))
             ->setBillingInfo(new BillingInfo([
                 'firstName' => $this->faker->firstName,
-                'lastName'  => $this->faker->lastName,
-                'address'   => $this->faker->address,
-                'city'      => $this->faker->city,
-                'state'     => $this->faker->state,
-                'zip'       => '46282' // this zip will determine that its declined
+                'lastName' => $this->faker->lastName,
+                'address' => $this->faker->address,
+                'city' => $this->faker->city,
+                'state' => $this->faker->state,
+                'zip' => '46282', // this zip will determine that its declined
             ]))
             ->charge(1);
     
