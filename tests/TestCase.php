@@ -2,7 +2,6 @@
 
 namespace Markandrewkato\AuthorizeNet\Tests;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
 use Markandrewkato\AuthorizeNet\AuthorizeNetServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 
@@ -12,9 +11,11 @@ class TestCase extends Orchestra
     {
         parent::setUp();
 
+        /*
         Factory::guessFactoryNamesUsing(
             fn (string $modelName) => 'Markandrewkato\\AuthorizeNet\\Database\\Factories\\'.class_basename($modelName).'Factory'
         );
+        */
     }
 
     protected function getPackageProviders($app)
